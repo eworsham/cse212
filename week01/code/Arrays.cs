@@ -13,7 +13,19 @@ public static class Arrays
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
 
-        return []; // replace this return statement with your own
+        // Create a fixed array with a capacity of the given length
+        double[] result = new double[length];
+
+        // For loop that loops "length" number of times
+        // Each time it loops, calclate the multiple but multiplying the number by "i"
+        // Add the multiple to the result array
+        for (int i = 0; i < length; i++)
+        {
+            result[i] = number * (i + 1);
+        }
+
+        // Return the result array
+        return result;
     }
 
     /// <summary>
@@ -29,5 +41,15 @@ public static class Arrays
         // Remember: Using comments in your program, write down your process for solving this problem
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
+
+        // Create a temporary list for saving the items being shifted to the end of the original list
+        // Slice the data list, added the sliced numbers to the temp list
+        List<int> listItemsShiftingToEnd = data.Slice(0, data.Count - amount);
+
+        // Remove the items that are shifting from the data list
+        data.RemoveRange(0, data.Count - amount);
+
+        // Add back the removed items to the end using the temp list
+        data.AddRange(listItemsShiftingToEnd);
     }
 }
