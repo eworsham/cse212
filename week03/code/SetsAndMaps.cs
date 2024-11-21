@@ -105,7 +105,7 @@ public static class SetsAndMaps
         {
             // Ignore spaces
             if (letter == ' ') continue;
-            
+
             if (word1Dict.ContainsKey(letter))
             {
                 word1Dict[letter] += 1;
@@ -184,6 +184,13 @@ public static class SetsAndMaps
         // on those classes so that the call to Deserialize above works properly.
         // 2. Add code below to create a string out each place a earthquake has happened today and its magitude.
         // 3. Return an array of these string descriptions.
-        return [];
+        string[] earthquakes = new string[featureCollection.Features.Length];
+
+        for (int i = 0; i < featureCollection.Features.Length; i++)
+        {
+            earthquakes[i] = $"{featureCollection.Features[i].Properties.Place} - Mag {featureCollection.Features[i].Properties.Mag}";
+        }
+        
+        return earthquakes;
     }
 }
